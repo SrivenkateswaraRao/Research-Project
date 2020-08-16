@@ -8,6 +8,8 @@ from sklearn.metrics import precision_score
 from sklearn.metrics import recall_score
 from sklearn.metrics import f1_score
 from sklearn.metrics import cohen_kappa_score
+from collections import OrderedDict  
+
 
 
 
@@ -95,10 +97,6 @@ def plot_image(i, predictions_array, true_labels, images):
                                 color=color)
 
 
-
-
-
-
 def averageOfList(num):
     sumOfNumbers = 0
     for t in num:
@@ -108,7 +106,11 @@ def averageOfList(num):
     return avg
 
 
-
+  
+def group_list(lst):     
+    res =  [(el, lst.count(el)) for el in lst] 
+    return list(OrderedDict(res).items()) 
+    print(group_list(lst)) 
 
 
 
